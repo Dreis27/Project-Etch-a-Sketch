@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    <script src = script.js></script>
+    
    
 </head>
 <body>
@@ -18,19 +18,17 @@
 
     <div class="main-container">
         <div class="button-container">
-            <button>Button 1</button>
-            <button>Button 2</button>
-            <button>Button 3</button>
-            <button>Button 4</button>
-            <button>Button 5</button>
-            <button>Button 6</button>
-            <input type="number" id="gridSize" placeholder="Enter grid size (e.g., 10 for 10x10)">
-            <button onclick="generateGrid()">Generate Grid</button>
+            <button id="colorBtn">COLOR MODE</button>
+            <button id="rainbowBtn">RAINBOW</button>
+            <button id="eraseBtn">ERASER</button>
+            <button id="clearBtn">CLEAR</button>
+            <div id="sizeValue" class="size-value">16 x 16</div>
+            <input id="sizeSlider" type="range" value="50" min="1" max="64" />
         </div>
         <div class="container">
         <div class="grid-container"></div>
     </div>
     </div>
-    
+    <script src = script.js></script>
 </body>
 </html>
