@@ -6,8 +6,11 @@ const clearBtn = document.getElementById('clearBtn');
 const rainbowBtn = document.getElementById('rainbowBtn');
 const sizeValue = document.getElementById('sizeValue');
 const sizeSlider = document.getElementById('sizeSlider');
+const colorPicker = document.getElementById('colorPicker');
+const colorDisplay = document.querySelector('.color-display');
 
 let drawingMode = 'normal'; 
+let chosenColor = 'black';
 
 
   
@@ -32,8 +35,10 @@ function generateGrid() {
                     gridItem.style.backgroundColor = 'white';
                 } else if (drawingMode === 'rainbow') {
                     gridItem.style.backgroundColor = getRandomColor();
+                } else if (drawingMode === 'colorMode') {
+                    gridItem.style.backgroundColor = chosenColor; // default color for 'normal' mode
                 } else {
-                    gridItem.style.backgroundColor = 'blue'; // default color for 'normal' mode
+                    gridItem.style.backgroundColor = chosenColor; 
                 }
             
         });
@@ -84,4 +89,19 @@ eraseBtn.addEventListener('click', function() {
 
 rainbowBtn.addEventListener('click', function() {
     setDrawingMode('rainbow');
+});
+
+colorBtn.addEventListener('click', function(){
+    setDrawingMode('colorMode');
+});
+
+colorDisplay.addEventListener('click', function() {
+    colorPicker.click();  // Trigger the color picker when the circle is clicked
+});
+
+colorPicker.addEventListener('input', function(event) {
+    chosenColor = event.target.value;
+    colorDisplay.style.backgroundColor = chosenColor;
+    // Optionally, set the drawingMode color to the chosenColor if you want
+    // drawingModeColor = chosenColor;
 });
