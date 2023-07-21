@@ -1,18 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
     <script src = script.js></script>
+   
 </head>
 <body>
+    <header>
+        <h1>Etch-A-Sketch</h1>
+    </header>
+    
 
-    <input type="number" id="gridSize" placeholder="Enter grid size (e.g., 10 for 10x10)">
-    <button onclick="generateGrid()">Generate Grid</button>
-    <div class="grid-container"></div>
+    <div class="main-container">
+        <div class="button-container">
+            <button>Button 1</button>
+            <button>Button 2</button>
+            <button>Button 3</button>
+            <button>Button 4</button>
+            <button>Button 5</button>
+            <button>Button 6</button>
+            <input type="number" id="gridSize" placeholder="Enter grid size (e.g., 10 for 10x10)">
+            <button onclick="generateGrid()">Generate Grid</button>
+        </div>
+        <div class="container">
+        <div class="grid-container"></div>
+    </div>
+    </div>
     
 </body>
 </html>
