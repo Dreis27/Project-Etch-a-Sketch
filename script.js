@@ -11,6 +11,7 @@ const colorDisplay = document.querySelector('.color-display');
 
 let drawingMode = 'normal'; 
 let chosenColor = 'black';
+let currentSize = undefined;
 
 const buttons = [colorBtn, rainbowBtn, eraseBtn];
 
@@ -23,7 +24,7 @@ function generateGrid() {
     const container = document.querySelector('.grid-container');
     container.innerHTML = ''; // Clear any previous grid
 
-    const n = document.getElementById('sizeSlider').value || 16;
+    const n = currentSize || 16;
 
     // Set CSS grid properties based on input
     container.style.gridTemplateColumns = `repeat(${n}, 1fr)`;
@@ -82,6 +83,8 @@ window.onload = function() {
 
 colorBtn.classList.add('selected');
 
+sizeValue.innerHTML = `${sizeSlider.value} x ${sizeSlider.value}`;
+
 clearBtn.addEventListener('click', clearGrid);
 
 eraseBtn.addEventListener('click', function() {
@@ -101,6 +104,12 @@ colorBtn.addEventListener('click', function(){
     clearSelected();
     colorBtn.classList.add('selected');
 });
+
+sizeSlider.oninput = function() {
+    sizeValue.innerHTML = `${this.value} x ${this.value}`;
+    currentSize = this.value;
+    generateGrid();
+}
 
 colorDisplay.addEventListener('click', function() {
     colorPicker.click();  // Trigger the color picker when the circle is clicked
