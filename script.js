@@ -12,7 +12,11 @@ const colorDisplay = document.querySelector('.color-display');
 let drawingMode = 'normal'; 
 let chosenColor = 'black';
 
+const buttons = [colorBtn, rainbowBtn, eraseBtn];
 
+function clearSelected() {
+    buttons.forEach(btn => btn.classList.remove('selected'));
+}
   
 
 function generateGrid() {
@@ -72,27 +76,30 @@ function getRandomColor() {
 
 
 
-
-
-
 window.onload = function() {
     generateGrid();
 }
 
-console.log(rainbowBtn);
+colorBtn.classList.add('selected');
 
 clearBtn.addEventListener('click', clearGrid);
 
 eraseBtn.addEventListener('click', function() {
     setDrawingMode('erase');
+    clearSelected();
+    eraseBtn.classList.add('selected');
 });
 
 rainbowBtn.addEventListener('click', function() {
     setDrawingMode('rainbow');
+    clearSelected();
+    rainbowBtn.classList.add('selected');
 });
 
 colorBtn.addEventListener('click', function(){
     setDrawingMode('colorMode');
+    clearSelected();
+    colorBtn.classList.add('selected');
 });
 
 colorDisplay.addEventListener('click', function() {
